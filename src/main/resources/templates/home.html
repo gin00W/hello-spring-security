@@ -83,4 +83,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<footer class="mt-5 py-3 bg-light border-top text-center text-muted small">
+
+    <p th:text="${'실습 수행 일시: ' + #temporals.format(#temporals.createNow(), '2026년 6월 1일 HH:mm:ss')}"></p>
+  
+    <p>학번: 2291026 &nbsp;|&nbsp; 성명: 노운지</p>
+  
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
