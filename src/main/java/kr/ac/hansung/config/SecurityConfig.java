@@ -29,9 +29,10 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/", "/login", "/signup",
-                                 "/css/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
+                .requestMatchers("/", "/home", "/login", "/signup",
+                    "/css/**", "/js/**", "/images/**", "/favicon.ico").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/products/*/edit").hasRole("ADMIN")
                 .requestMatchers("/products/add", "/products/*/delete").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
                 .anyRequest().authenticated()
@@ -50,7 +51,6 @@ public class SecurityConfig {
                 .permitAll()
             )
             .userDetailsService(userDetailsService);
-
         return http.build();
     }
 }
